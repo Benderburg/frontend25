@@ -14,8 +14,9 @@ const labsData = [
     {
         number: 2,
         title: "Лабораторная работа №2",
-        description: "Работа с макетами. Flexbox и Grid Layout.",
-        available: false
+        description: "Семантическая вёрстка, Flex/Grid, адаптивность с медиазапросами.",
+        available: true,
+        downloadUrl: "files/lab2.pdf"
     },
     {
         number: 3,
