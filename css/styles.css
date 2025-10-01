@@ -176,8 +176,8 @@ header h1 {
 
 .labs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
     margin-top: 15px;
 }
 
@@ -241,26 +241,131 @@ header h1 {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
     header h1 {
         font-size: 1.8rem;
     }
 
     .info-panel {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .tabs {
         flex-direction: column;
     }
 
-    .labs-grid {
-        grid-template-columns: repeat(5, 1fr);
+    .student-card {
+        padding: 20px;
     }
 
     .student-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+
+    .labs-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+    }
+
+    .lab-item {
+        padding: 8px 4px;
+    }
+
+    .lab-number {
+        font-size: 0.7rem;
+    }
+
+    .lab-score {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .info-value {
+        font-size: 1.5rem;
+    }
+
+    .tab-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .student-card {
+        padding: 15px;
+    }
+
+    .student-name {
+        font-size: 1.1rem;
+    }
+
+    .score-value {
+        font-size: 1.3rem;
+    }
+
+    .auto-pass {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+
+    .labs-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    .lab-item {
+        padding: 6px 2px;
+        border-radius: 8px;
+    }
+
+    .lab-number {
+        font-size: 0.65rem;
+        margin-bottom: 3px;
+    }
+
+    .lab-score {
+        font-size: 0.9rem;
+    }
+
+    .progress-bar {
+        font-size: 0.8rem;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .labs-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+    }
+
+    .lab-item {
+        padding: 5px 1px;
+    }
+
+    .lab-number {
+        font-size: 0.6rem;
+    }
+
+    .lab-score {
+        font-size: 0.85rem;
     }
 }
 
