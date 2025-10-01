@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогресс студентов - Веб-разработка</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Лабораторный практикум по веб-разработке</h1>
+            <p class="subtitle">Прогресс выполнения лабораторных работ</p>
+        </header>
+
+        <div class="info-panel">
+            <div class="info-card">
+                <div class="info-label">Всего лабораторных</div>
+                <div class="info-value">10</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Максимум баллов</div>
+                <div class="info-value">100</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Автозачёт от</div>
+                <div class="info-value">80</div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" data-group="0">24ИС</button>
+            <button class="tab-button" data-group="1">24ИВ</button>
+            <button class="tab-button" data-group="2">24ПИ</button>
+        </div>
+
+        <div id="students-container">
+            <!-- Студенты будут загружены динамически -->
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
