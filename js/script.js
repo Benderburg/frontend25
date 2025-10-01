@@ -1,5 +1,71 @@
 let groupsData = [];
 let currentGroup = 0;
+let viewMode = 'students'; // 'students' или 'labs'
+
+// Данные лабораторных работ
+const labsData = [
+    {
+        number: 1,
+        title: "Лабораторная работа №1",
+        description: "Введение в HTML и CSS. Создание базовой структуры веб-страницы.",
+        available: true,
+        downloadUrl: "files/lab1.pdf" // Замените на реальный URL файла
+    },
+    {
+        number: 2,
+        title: "Лабораторная работа №2",
+        description: "Работа с макетами. Flexbox и Grid Layout.",
+        available: false
+    },
+    {
+        number: 3,
+        title: "Лабораторная работа №3",
+        description: "Основы JavaScript. Переменные, типы данных, операторы.",
+        available: false
+    },
+    {
+        number: 4,
+        title: "Лабораторная работа №4",
+        description: "DOM манипуляции. Работа с событиями.",
+        available: false
+    },
+    {
+        number: 5,
+        title: "Лабораторная работа №5",
+        description: "Формы и валидация. Работа с пользовательским вводом.",
+        available: false
+    },
+    {
+        number: 6,
+        title: "Лабораторная работа №6",
+        description: "Асинхронное программирование. Fetch API и работа с данными.",
+        available: false
+    },
+    {
+        number: 7,
+        title: "Лабораторная работа №7",
+        description: "Адаптивный дизайн и медиа-запросы.",
+        available: false
+    },
+    {
+        number: 8,
+        title: "Лабораторная работа №8",
+        description: "Работа с Local Storage и Session Storage.",
+        available: false
+    },
+    {
+        number: 9,
+        title: "Лабораторная работа №9",
+        description: "Введение в фреймворки. Основы React или Vue.",
+        available: false
+    },
+    {
+        number: 10,
+        title: "Лабораторная работа №10",
+        description: "Финальный проект. Создание полноценного веб-приложения.",
+        available: false
+    }
+];
 
 // Данные для fallback (когда файл открыт локально через file://)
 const fallbackData = {
@@ -215,8 +281,109 @@ function initTabs() {
     });
 }
 
+// Отображение лабораторных работ
+function displayLabs() {
+    viewMode = 'labs';
+    const container = document.getElementById('students-container');
+    const tabsContainer = document.querySelector('.tabs');
+    
+    // Скрываем вкладки групп
+    tabsContainer.style.display = 'none';
+    
+    container.innerHTML = '<button class="back-button" id="backButton">← Вернуться к студентам</button>';
+    
+    const labsContainer = document.createElement('div');
+    labsContainer.id = 'labs-container';
+    
+    labsData.forEach(lab => {
+        const labCard = document.createElement('div');
+        labCard.className = `lab-card ${lab.available ? 'active' : 'inactive'}`;
+        
+        labCard.innerHTML = `
+            <div class="lab-header">
+                <div class="lab-number-badge">ЛР ${lab.number}</div>
+                <div class="lab-status ${lab.available ? 'available' : 'in-development'}">
+                    ${lab.available ? 'Доступна' : 'В разработке'}
+                </div>
+            </div>
+            <div class="lab-title">${lab.title}</div>
+            <div class="lab-description">${lab.description}</div>
+            <button class="lab-download-btn ${lab.available ? 'active' : 'inactive'}" 
+                    ${lab.available ? '' : 'disabled'}
+                    data-url="${lab.downloadUrl || ''}">
+                ${lab.available ? '📥 Скачать задание' : '🔒 В разработке'}
+            </button>
+        `;
+        
+        labsContainer.appendChild(labCard);
+    });
+    
+    container.appendChild(labsContainer);
+    
+    // Обработчик кнопки "Назад"
+    document.getElementById('backButton').addEventListener('click', () => {
+        viewMode = 'students';
+        tabsContainer.style.display = 'flex';
+        displayStudents(currentGroup);
+    });
+    
+    // Обработчики кнопок скачивания
+    document.querySelectorAll('.lab-download-btn.active').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const url = e.target.dataset.url;
+            if (url && url !== '#') {
+                window.location.href = url;
+            } else {
+                alert('Файл для скачивания будет доступен позже');
+            }
+        });
+    });
+}
+
+// Управление модальным окном с правилами
+function initModal() {
+    const modal = document.getElementById('rulesModal');
+    const rulesButton = document.getElementById('rulesButton');
+    const closeButton = document.getElementById('closeModal');
+
+    // Открытие модального окна
+    rulesButton.addEventListener('click', () => {
+        modal.classList.add('show');
+    });
+
+    // Закрытие по клику на крестик
+    closeButton.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    // Закрытие по клику вне окна
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+
+    // Закрытие по клавише Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+        }
+    });
+}
+
+// Управление переключением между студентами и лабораторными
+function initLabsCard() {
+    const labsCard = document.getElementById('labsCard');
+    
+    labsCard.addEventListener('click', () => {
+        displayLabs();
+    });
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
+    initModal();
+    initLabsCard();
 });
 

@@ -21,6 +21,7 @@ header {
     color: white;
     margin-bottom: 40px;
     padding: 20px;
+    position: relative;
 }
 
 header h1 {
@@ -32,6 +33,27 @@ header h1 {
 .subtitle {
     font-size: 1.2rem;
     opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.rules-button {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.rules-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: #f8f9ff;
 }
 
 .info-panel {
@@ -52,6 +74,28 @@ header h1 {
 
 .info-card:hover {
     transform: translateY(-5px);
+}
+
+.info-card.clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.info-card.clickable:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.info-card.clickable:active {
+    transform: translateY(-3px);
+}
+
+.info-hint {
+    font-size: 0.75rem;
+    color: #667eea;
+    margin-top: 8px;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 .info-label {
@@ -240,6 +284,133 @@ header h1 {
     font-weight: 600;
 }
 
+/* Карточки лабораторных работ */
+#labs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.lab-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.lab-card.active {
+    border: 2px solid #10b981;
+}
+
+.lab-card.inactive {
+    opacity: 0.7;
+}
+
+.lab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.lab-number-badge {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.lab-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.lab-status.available {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.lab-status.in-development {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.lab-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.lab-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.lab-download-btn {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.lab-download-btn.active {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.lab-download-btn.active:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.lab-download-btn.inactive {
+    background: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -284,6 +455,14 @@ header h1 {
     .lab-score {
         font-size: 1rem;
     }
+
+    #labs-container {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-card {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -301,6 +480,10 @@ header h1 {
 
     .info-value {
         font-size: 1.5rem;
+    }
+
+    .info-hint {
+        font-size: 0.7rem;
     }
 
     .tab-button {
@@ -348,6 +531,27 @@ header h1 {
         font-size: 0.8rem;
         padding-right: 10px;
     }
+
+    #labs-container {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-card {
+        padding: 18px;
+    }
+
+    .lab-title {
+        font-size: 1.1rem;
+    }
+
+    .lab-description {
+        font-size: 0.9rem;
+    }
+
+    .back-button {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -366,6 +570,197 @@ header h1 {
 
     .lab-score {
         font-size: 0.85rem;
+    }
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #667eea;
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #667eea;
+}
+
+.rules-section {
+    margin-bottom: 30px;
+}
+
+.rules-section h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.rules-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.rules-section ul li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.6;
+    color: #555;
+}
+
+.rules-section ul li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: #667eea;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.rules-section ul ul {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.rules-section ul ul li::before {
+    content: "◦";
+    font-size: 1.2rem;
+}
+
+.rules-section strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.rules-section code {
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #667eea;
+    font-size: 0.95rem;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #10b981 0%, #10b981 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 0 88%;
+    padding: 2px 0;
+    font-weight: 600;
+}
+
+/* Адаптивность модального окна */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .rules-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+    }
+
+    .rules-button {
+        font-size: 0.9rem;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 25px 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .rules-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .rules-section ul li {
+        font-size: 0.95rem;
     }
 }
 
