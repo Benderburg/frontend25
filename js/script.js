@@ -21,43 +21,44 @@ const labsData = [
     {
         number: 3,
         title: "Лабораторная работа №3",
-        description: "Основы JavaScript. Переменные, типы данных, операторы.",
-        available: false
+        description: "CSS-препроцессоры: LESS и SASS",
+        available: true,
+        downloadUrl: "files/lab3.pdf"
     },
     {
         number: 4,
         title: "Лабораторная работа №4",
-        description: "DOM манипуляции. Работа с событиями.",
+        description: "Underconstruction",
         available: false
     },
     {
         number: 5,
         title: "Лабораторная работа №5",
-        description: "Формы и валидация. Работа с пользовательским вводом.",
+        description: "Underconstruction",
         available: false
     },
     {
         number: 6,
         title: "Лабораторная работа №6",
-        description: "Асинхронное программирование. Fetch API и работа с данными.",
+        description: "Underconstruction",
         available: false
     },
     {
         number: 7,
         title: "Лабораторная работа №7",
-        description: "Адаптивный дизайн и медиа-запросы.",
+        description: "Underconstruction",
         available: false
     },
     {
         number: 8,
         title: "Лабораторная работа №8",
-        description: "Работа с Local Storage и Session Storage.",
+        description: "Underconstruction",
         available: false
     },
     {
         number: 9,
         title: "Лабораторная работа №9",
-        description: "Введение в фреймворки. Основы React или Vue.",
+        description: "Underconstruction",
         available: false
     },
     {
