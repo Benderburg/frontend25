@@ -28,43 +28,44 @@ const labsData = [
     {
         number: 4,
         title: "Лабораторная работа №4",
-        description: "Underconstruction",
-        available: false
+        description: "CSS-библиотеки: Bootstrap & Tailwind",
+        available: true,
+        downloadUrl: "files/lab4.pdf"
     },
     {
         number: 5,
         title: "Лабораторная работа №5",
-        description: "Underconstruction",
+        description: "Введение в JavaScript",
         available: false
     },
     {
         number: 6,
         title: "Лабораторная работа №6",
-        description: "Underconstruction",
+        description: "DOM и события",
         available: false
     },
     {
         number: 7,
         title: "Лабораторная работа №7",
-        description: "Underconstruction",
+        description: "jQuery: зачем и почему меньше актуально",
         available: false
     },
     {
         number: 8,
         title: "Лабораторная работа №8",
-        description: "Underconstruction",
+        description: "Введение в React + JSX",
         available: false
     },
     {
         number: 9,
         title: "Лабораторная работа №9",
-        description: "Underconstruction",
+        description: "Работа с данными (API + React Hooks)",
         available: false
     },
     {
         number: 10,
         title: "Лабораторная работа №10",
-        description: "Финальный проект. Создание полноценного веб-приложения.",
+        description: "Мини-проект: «AI-powered веб-приложение»",
         available: false
     }
 ];
