@@ -36,7 +36,8 @@ const labsData = [
         number: 5,
         title: "Лабораторная работа №5",
         description: "Введение в JavaScript",
-        available: false
+        available: true,
+        downloadUrl: "files/lab5.pdf"
     },
     {
         number: 6,
