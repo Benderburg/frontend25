@@ -42,8 +42,9 @@ const labsData = [
     {
         number: 6,
         title: "Лабораторная работа №6",
-        description: "DOM и события",
-        available: false
+        description: "Асинхронный JavaScript — API и хранилище",
+        available: true,
+        downloadUrl: "files/lab6.pdf"
     },
     {
         number: 7,
