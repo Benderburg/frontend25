@@ -49,8 +49,9 @@ const labsData = [
     {
         number: 7,
         title: "Лабораторная работа №7",
-        description: "jQuery: зачем и почему меньше актуально",
-        available: false
+        description: "jQuery: прошлое и будущее",
+        available: true,
+        downloadUrl: "files/lab7.pdf"
     },
     {
         number: 8,
