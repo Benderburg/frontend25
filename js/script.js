@@ -64,7 +64,8 @@ const labsData = [
         number: 9,
         title: "Лабораторная работа №9",
         description: "Работа с данными (API + React Hooks)",
-        available: false
+        available: true,
+        downloadUrl: "files/lab9.pdf"
     },
     {
         number: 10,
