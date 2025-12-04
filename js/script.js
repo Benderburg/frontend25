@@ -71,7 +71,8 @@ const labsData = [
         number: 10,
         title: "Лабораторная работа №10",
         description: "Мини-проект: «AI-powered веб-приложение»",
-        available: false
+        available: true,
+        downloadUrl: "files/lab10.pdf"
     }
 ];
 
